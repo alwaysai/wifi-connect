@@ -1,0 +1,15 @@
+[Unit]
+Description=WiFi connect service
+After=NetworkManager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/etc/wifi-connect/start-wifi-connect.sh
+Restart=on-failure
+StandardOutput=syslog
+SyslogIdentifier=wifi-connect
+Type=idle
+User=root
+
+[Install]
+WantedBy=multi-user.target
