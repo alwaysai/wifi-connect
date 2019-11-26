@@ -4,7 +4,7 @@ After=NetworkManager.service
 
 [Service]
 Type=simple
-ExecStart=/usr/local/etc/wifi-connect/start-wifi-connect.sh
+ExecStart=/usr/local/etc/wifi-connect/start.sh
 Restart=on-failure
 StandardOutput=syslog
 SyslogIdentifier=wifi-connect
