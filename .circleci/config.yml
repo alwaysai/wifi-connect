@@ -15,7 +15,7 @@ build: &build
 
     - run: |
         VERSION=$CIRCLE_TAG
-        if [ -z "$CIRCLE_TAG" ]; then VERSION="$CIRCLE_BRANCH-$(echo $CIRCLE_SHA1 | cut -c -7)"; fi
+        if [ -z "$CIRCLE_TAG" ]; then VERSION="$(echo $CIRCLE_SHA1 | cut -c -7)"; fi
         echo "VERSION=$VERSION"
         echo "export VERSION=$VERSION" >> $BASH_ENV
 
