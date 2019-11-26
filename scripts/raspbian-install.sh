@@ -5,13 +5,14 @@ set -u
 trap "exit 1" TERM
 export TOP_PID=$$
 
-: "${WFC_REPO:=balena-io/wifi-connect}"
+: "${WFC_REPO:=alwaysai/wifi-connect}"
 : "${WFC_INSTALL_ROOT:=/usr/local}"
 
 SCRIPT='raspbian-install.sh'
 NAME='WiFi Connect Raspbian Installer'
 
 INSTALL_BIN_DIR="$WFC_INSTALL_ROOT/sbin"
+INSTALL_ETC_DIR="$WFC_INSTALL_ROOT/etc/wifi-connect"
 INSTALL_UI_DIR="$WFC_INSTALL_ROOT/share/wifi-connect/ui"
 
 RELEASE_URL="https://api.github.com/repos/$WFC_REPO/releases/latest"
@@ -59,7 +60,9 @@ main() {
 
     activate_network_manager
 
-    say "Run 'wifi-connect --help' for available options"
+    enable_service
+
+    say "WiFi Connect setup complete"
 }
 
 check_os_version() {
@@ -176,6 +179,14 @@ install_wfc() {
 
     ensure sudo mv "$_download_dir/wifi-connect" $INSTALL_BIN_DIR
 
+    ensure sudo mkdir -p $INSTALL_ETC_DIR
+
+    ensure sudo rm -rdf $INSTALL_ETC_DIR
+
+    ensure sudo mv "$_download_dir/scripts/start.sh" $INSTALL_ETC_DIR
+
+    ensure sudo mv "$_download_dir/scripts/wifi-connect-start.service" "/lib/systemd/system/"
+
     ensure sudo mkdir -p $INSTALL_UI_DIR
 
     ensure sudo rm -rdf $INSTALL_UI_DIR
@@ -187,6 +198,10 @@ install_wfc() {
     _wfc_version=$(ensure wifi-connect --version)
 
     say "Successfully installed $_wfc_version"
+}
+
+enable_service() {
+    ensure sudo systemctl enable wifi-connect-start.service
 }
 
 say() {
