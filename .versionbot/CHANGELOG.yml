@@ -1,3 +1,6 @@
+- commits: []
+  version: 4.2.12-aai.2
+  date: 2019-11-27T01:00:57.636Z
 - commits:
     - subject: Ignore unmanaged devices
       hash: 131c3a6ed24b5589e916d8b10cf72bb7a8514600
