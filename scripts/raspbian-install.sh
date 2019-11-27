@@ -181,7 +181,7 @@ install_wfc() {
 
     ensure sudo mkdir -p $INSTALL_ETC_DIR
 
-    ensure sudo rm -rdf $INSTALL_ETC_DIR
+    ensure sudo rm -rdf "$INSTALL_ETC_DIR/*"
 
     ensure sudo mv "$_download_dir/scripts/start.sh" "$INSTALL_ETC_DIR/start.sh"
 
