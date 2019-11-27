@@ -1,3 +1,13 @@
+- commits:
+    - subject: Fix mv command in Raspbian install
+      hash: eb74237445f1aafd41a03ce4027a88ffe90cb4e9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Eric VanBuhler
+  version: 4.2.12-aai.3
+  date: 2019-11-27T01:47:06.250Z
 - commits: []
   version: 4.2.12-aai.2
   date: 2019-11-27T01:00:57.636Z
