@@ -26,7 +26,7 @@ if [ $? -eq 0 ]; then
     printf 'Skipping WiFi Connect\n'
 else
     printf 'Starting WiFi Connect\n'
-    wifi-connect
+    wifi-connect -s "alwaysAI Connect"
 fi
 
 # Start your application here.
