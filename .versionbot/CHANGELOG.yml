@@ -6,6 +6,16 @@
         Change-type: patch
         change-type: patch
       author: Eric VanBuhler
+  version: v4.2.12-aai.5
+  date: 2020-01-14T21:45:49.063Z
+- commits:
+    - subject: Fix mv command in Raspbian install
+      hash: eb74237445f1aafd41a03ce4027a88ffe90cb4e9
+      body: ''
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Eric VanBuhler
   version: 4.2.12-aai.4
   date: 2019-12-17T23:38:53.499Z
 - commits:
