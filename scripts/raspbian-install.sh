@@ -89,7 +89,7 @@ activate_network_manager() {
 
         ensure sudo apt-get update
 
-        ensure sudo apt-get install -y -d network-manager
+        ensure sudo apt-get install -y -d network-manager network-manager-gnome
 
         disable_dhcpcd
 
